@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Bem-vindo!</title>
+</head>
+<body>
+    <main class="container">
+        <div id="welcome-message">
+        </div>
+
+        <button id="edit-btn" class="login" style="margin-top: 20px;">Editar</button>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        const welcomeMessageContainer = document.getElementById('welcome-message');
+        const editButton = document.getElementById('edit-btn');
+
+        if (username) {
+            welcomeMessageContainer.innerHTML = `<h1>Bem vindo, ${username}!</h1>`;
+        } else {
+            welcomeMessageContainer.innerHTML = '<h1>Bem vindo!</h1>';
+            editButton.style.display = 'none';
+        }
+        
+        editButton.addEventListener('click', function() {
+            window.location.href = `index.html?username=${encodeURIComponent(username)}`;
+        });
+    </script>
+</body>
+</html>
