@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="styles.css">
     <title>Bem-vindo!</title>
 </head>
 <body>
     <main class="container">
-        <div id="welcome-message">
-        </div>
+        <div id="welcome-message"></div>
 
-        <button id="edit-btn" class="login" style="margin-top: 20px;">Editar</button>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
+            <button id="edit-btn" class="login">Editar</button>
+            <button id="logout-btn" class="login" style="background-color: #d9534f;">Logout</button>
+        </div>
     </main>
 
     <script>
@@ -20,16 +23,21 @@
 
         const welcomeMessageContainer = document.getElementById('welcome-message');
         const editButton = document.getElementById('edit-btn');
+        const logoutButton = document.getElementById('logout-btn');
 
         if (username) {
-            welcomeMessageContainer.innerHTML = `<h1>Bem vindo, ${username}!</h1>`;
+            welcomeMessageContainer.innerHTML = `<h1>Bem-vindo, ${username}!</h1>`;
         } else {
-            welcomeMessageContainer.innerHTML = '<h1>Bem vindo!</h1>';
+            welcomeMessageContainer.innerHTML = '<h1>Bem-vindo!</h1>';
             editButton.style.display = 'none';
         }
-        
+
         editButton.addEventListener('click', function() {
-            window.location.href = `index.html?username=${encodeURIComponent(username)}`;
+            window.location.href = `edit.html?username=${encodeURIComponent(username)}`;
+        });
+
+        logoutButton.addEventListener('click', function() {
+            window.location.href = "index.html";
         });
     </script>
 </body>
