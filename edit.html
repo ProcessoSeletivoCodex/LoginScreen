@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <title>Editar Nome</title>
+</head>
+<body>
+    <main class="container">
+        <form id="edit-form">
+            <h1>Editar Nome</h1>
+            <div class="input-box">
+                <input id="username" placeholder="Digite seu nome" type="text" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <button type="submit" class="login">Salvar</button>
+        </form>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentName = urlParams.get('username');
+
+        const input = document.getElementById('username');
+        if (currentName) {
+            input.value = currentName;
+        }
+
+        const form = document.getElementById('edit-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const newName = input.value.trim();
+            if (newName) {
+                window.location.href = `welcome.html?username=${encodeURIComponent(newName)}`;
+            }
+        });
+    </script>
+</body>
+</html>
