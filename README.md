@@ -22,9 +22,10 @@ O projeto consiste em um fluxo simples mas completo com:
 - **Responsividade** para diferentes dispositivos (mobile, tablet, desktop)
 
 ## 👥 Divisão de Tarefas
-- **Paulo Porto**: Desenvolvimento da tela de login
-- **Diogo Medeiros**: Implementação da tela de saudação
-- **Axel Vaz**: Criação dos botões de editar e logout
+- **Paulo Porto**: Criação do README e desenvolvimento da tela de login  
+- **Diogo Medeiros**: Desenvolvimento da tela de saudação e prototipagem de um menu superior (disponível na branch `menu`)  
+- **Axel Vaz**: Desenvolvimento da tela de edição e criação dos botões de editar e logout  
+
 
 ## 🚀 Como Testar a Aplicação
 
@@ -43,7 +44,15 @@ O projeto consiste em um fluxo simples mas completo com:
 2. Na tela de boas-vindas, experimente:
 - Clicar em "Editar" para alterar seu nome.
 - Clicar em "Sair" para limpar os dados e voltar ao início
-   
+
+### 🔀 Versão Alternativa (Branch menu)
+
+Caso queira testar a versão com o protótipo de um menu superior que agrupa os botões de Editar e Sair:
+
+1. **Acesse a pasta do repositório clonado e troque para a branch `menu`**:
+   ```bash
+   git checkout menu
+2. Abra o arquivo index.html em seu navegador preferido
    
    
    
