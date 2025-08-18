@@ -8,13 +8,16 @@
     <title>Bem-vindo!</title>
 </head>
 <body>
-    <main class="container">
-        <div id="welcome-message"></div>
-
-        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px;">
-            <button id="edit-btn" class="login">Editar</button>
-            <button id="logout-btn" class="login" style="background-color: #d9534f;">Logout</button>
+    <div class="menu-container">
+        <button id="menu-btn" class="menu-btn"><i class='bx bx-menu'></i></button>
+        <div id="dropdown-menu" class="dropdown-content">
+            <button id="edit-btn">Editar</button>
+            <button id="logout-btn">Logout</button>
         </div>
+    </div>
+
+    <main>
+        <div id="welcome-message"></div>
     </main>
 
     <script>
@@ -24,6 +27,8 @@
         const welcomeMessageContainer = document.getElementById('welcome-message');
         const editButton = document.getElementById('edit-btn');
         const logoutButton = document.getElementById('logout-btn');
+        const menuButton = document.getElementById('menu-btn');
+        const dropdownMenu = document.getElementById('dropdown-menu');
 
         if (username) {
             welcomeMessageContainer.innerHTML = `<h1>Bem-vindo, ${username}!</h1>`;
@@ -39,6 +44,18 @@
         logoutButton.addEventListener('click', function() {
             window.location.href = "index.html";
         });
+
+        menuButton.addEventListener('click', function() {
+            dropdownMenu.classList.toggle('show');
+        });
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.menu-btn') && !event.target.closest('.menu-btn')) {
+                if (dropdownMenu.classList.contains('show')) {
+                    dropdownMenu.classList.remove('show');
+                }
+            }
+        }
     </script>
 </body>
 </html>
